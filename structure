@@ -1,0 +1,7 @@
+src/
+├── components/
+│   └── Profile.js
+├── pages/
+│   └── Home.js
+├── App.js
+└── index.js
