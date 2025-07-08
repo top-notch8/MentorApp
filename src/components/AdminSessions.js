@@ -19,12 +19,12 @@ const AdminSessions = () => {
   useEffect(() => {
     const fetchUsersAndSessions = async () => {
       try {
-        const resUsers = await axios.get('http://localhost:8000/api/admin/users', {
+        const resUsers = await axios.get('https://mentoapp-backend.onrender.com/api/admin/users', {
           headers: { Authorization: `Bearer ${token}` }
         });
         setUsers(resUsers.data.users || []);
 
-        const resSessions = await axios.get('http://localhost:8000/api/admin/sessions', {
+        const resSessions = await axios.get('https://mentoapp-backend.onrender.com/api/admin/sessions', {
           headers: { Authorization: `Bearer ${token}` }
         });
         setSessions(resSessions.data.sessions || []);
@@ -45,14 +45,14 @@ const AdminSessions = () => {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:8000/api/admin/sessions', form, {
+      await axios.post('https://mentoapp-backend.onrender.com/api/admin/sessions', form, {
         headers: { Authorization: `Bearer ${token}` }
       });
       toast.success('✅ Session created!');
       setForm({ title: '', description: '', mentee_id: '', mentor_id: '', scheduled_at: '' });
 
       // Refresh sessions list
-      const resSessions = await axios.get('http://localhost:8000/api/admin/sessions', {
+      const resSessions = await axios.get('https://mentoapp-backend.onrender.com/api/admin/sessions', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setSessions(resSessions.data.sessions || []);

@@ -30,7 +30,7 @@ function AppWrapper() {
     const fetchUserRole = async () => {
       if (token) {
         try {
-          const res = await axios.get('http://localhost:8000/api/profile', {
+          const res = await axios.get('https://mentoapp-backend.onrender.com/api/profile', {
             headers: { Authorization: `Bearer ${token}` },
           });
           setUserRole(res.data.user.role);
@@ -48,7 +48,7 @@ function AppWrapper() {
     setToken(newToken);
 
     try {
-      const res = await axios.get('http://localhost:8000/api/profile', {
+      const res = await axios.get('https://mentoapp-backend.onrender.com/api/profile', {
         headers: { Authorization: `Bearer ${newToken}` },
       });
       setUserRole(res.data.user.role);

@@ -27,7 +27,7 @@ const AdminAddUser = ({ userRole, onLogout }) => {
     }
 
     try {
-      await axios.post('http://localhost:8000/api/admin/users', form, {
+      await axios.post('https://mentoapp-backend.onrender.com/api/admin/users', form, {
         headers: { Authorization: `Bearer ${token}` },
       });
       toast.success(`✅ ${form.email} added as ${form.role}`);

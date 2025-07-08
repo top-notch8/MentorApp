@@ -11,7 +11,7 @@ const Admin = ({ userRole, onLogout }) => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const res = await axios.get('https://mentor-app-two.vercel.app/api/admin/users', {
+        const res = await axios.get('http://localhost:8000/api/admin/users', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUsers(res.data.users || []);
@@ -27,7 +27,7 @@ const Admin = ({ userRole, onLogout }) => {
   const handleRoleChange = async (id, newRole) => {
     try {
       await axios.put(
-        `https://mentor-app-two.vercel.app/api/admin/users/${id}/role`,
+        `http://localhost:8000/api/admin/users/${id}/role`,
         { role: newRole },
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -43,7 +43,7 @@ const Admin = ({ userRole, onLogout }) => {
 
   const handleDelete = async id => {
     try {
-      await axios.delete(`https://mentor-app-two.vercel.app/api/admin/users/${id}`, {
+      await axios.delete(`http://localhost:8000/api/admin/users/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setUsers(users.filter(user => user.id !== id));

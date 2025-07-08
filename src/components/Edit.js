@@ -12,13 +12,13 @@ const EditProfile = ({ onSave, onLogout }) => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:8000/api/profile', {
+      .get('https://mentoapp-backend.onrender.com/api/profile', {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
         const { name, bio, skills, goals, image } = res.data.profile;
         setForm({ name, bio, skills: skills.join(', '), goals });
-        if (image) setPreview(`http://localhost:8000${image}`);
+        if (image) setPreview(`https://mentoapp-backend.onrender.com${image}`);
       });
   }, [token]);
 
@@ -47,7 +47,7 @@ const EditProfile = ({ onSave, onLogout }) => {
       formData.append('goals', form.goals);
       if (imageFile) formData.append('image', imageFile);
 
-      await axios.put('http://localhost:8000/api/profile', formData, {
+      await axios.put('https://mentoapp-backend.onrender.com/api/profile', formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'multipart/form-data',
