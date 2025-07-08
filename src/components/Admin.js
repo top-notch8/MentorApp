@@ -11,7 +11,7 @@ const Admin = ({ userRole, onLogout }) => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const res = await axios.get('http://localhost:8000/api/admin/users', {
+        const res = await axios.get('https://mentoapp-backend.onrender.com/api/admin/users', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUsers(res.data.users || []);
@@ -43,7 +43,7 @@ const Admin = ({ userRole, onLogout }) => {
 
   const handleDelete = async id => {
     try {
-      await axios.delete(`http://localhost:8000/api/admin/users/${id}`, {
+      await axios.delete(`https://mentoapp-backend.onrender.com/api/admin/users/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setUsers(users.filter(user => user.id !== id));
