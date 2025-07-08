@@ -15,7 +15,7 @@ const Register = ({ onSwitchToLogin }) => {
     e.preventDefault();
 
     try {
-      await axios.post('http://localhost:8000/api/auth/register', form);
+      await axios.post('https://mentoapp-backend.onrender.com/api/auth/register', form);
       toast.success('🎉 Registration successful! Please log in.');
       onSwitchToLogin();
     } catch (err) {
