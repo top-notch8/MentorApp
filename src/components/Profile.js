@@ -24,7 +24,7 @@ const Profile = ({ onLogout }) => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const res = await axios.get('http://localhost:8000/api/profile', {
+        const res = await axios.get('https://mentoapp-backend.onrender.com/api/profile', {
           headers: { Authorization: `Bearer ${token}` }
         });
         setProfile(res.data.profile || res.data);
@@ -42,7 +42,7 @@ const Profile = ({ onLogout }) => {
 
   const handleDelete = async () => {
     try {
-      await axios.delete('http://localhost:8000/api/profile', {
+      await axios.delete('https://mentoapp-backend.onrender.com/api/profile', {
         headers: { Authorization: `Bearer ${token}` }
       });
       toast.success('🗑️ Profile deleted successfully!');
@@ -62,7 +62,7 @@ const Profile = ({ onLogout }) => {
       <div className="auth-container">
         {profile.image && (
           <img
-            src={`http://localhost:8000${profile.image}`}
+            src={`https://mentoapp-backend.onrender.com${profile.image}`}
             alt="Profile"
             style={{ width: '100%', borderRadius: '8px', marginBottom: '1rem' }}
           />
